@@ -9,5 +9,9 @@ setup(
     author_email = 'rober.reale@gmail.com',
     url = 'https://github.com/robertoreale/alphabet',
     keywords = [ ],
-    install_requires = [ ]
+    install_requires = [ ],
+    test_suite = 'nose.collector',
+    tests_require = ['nose'],
 )
+
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
