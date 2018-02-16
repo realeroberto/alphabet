@@ -1,5 +1,4 @@
 # alphabet
-=================
 
 [![PyPI](https://img.shields.io/pypi/v/alphabet.svg)](https://pypi.python.org/pypi/alphabet)
 
