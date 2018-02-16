@@ -24,6 +24,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import re
+
+
 class alphabet(str):
     def obfuscate(self, key):
         """
@@ -32,5 +35,56 @@ class alphabet(str):
         xorWord = lambda ss,cc: ''.join(chr(ord(s)^ord(c)) for s,c in zip(ss,cc*len(ss)))
         return alphabet(xorWord(self, key))
 
+    def detect_format(self):
+        import magic
+        with magic.Magic() as m:
+            return m.id_buffer(self)
 
+    def _init_google_translator(self):
+        try:
+            self.translator
+        except:
+            from googletrans import Translator
+            self.translator = Translator()
+
+    def detect_programming_language(self):
+        """
+        Detect programming language.
+        """
+        import pygments.lexers
+        try:
+            return pygments.lexers.guess_lexer(self).name
+        except:
+            return None
+
+    def detect_natural_language(self):
+        """
+        Detect natural language.
+        """
+        self._init_google_translator()
+        detected = self.translator.detect(self)
+        self.confidence = detected.confidence
+        return detected.lang
+        
+    def translate_natural_language(self, dest='en'):
+        """
+        Translate natural language.
+        """
+        self._init_google_translator()
+        translated = self.translator.translate(self, dest)
+        #self.src = translated.src
+        #self.dest = translated.dest
+        return translated.text
+
+    def identify(self):
+        format = self.detect_format()
+        if not re.search('^(ASCII|UTF-8 Unicode) text', format):
+            return format
+        else:
+            language = self.detect_programming_language()
+            if not language:
+                language = self.detect_natural_language()
+            return language
+                
+        
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

@@ -14,6 +14,8 @@ pip3 install alphabet
 
 ## Example
 
+### Obfuscate
+
 ```
 from alphabet import alphabet
 
@@ -29,4 +31,22 @@ print(bytes(t, 'utf-8'))
 
 print(t.obfuscate(key))
 > python
+```
+
+### Identify a string
+
+```
+from alphabet import alphabet
+
+alphabet.alphabet('%!').identify()
+> 'PostScript document text'
+
+alphabet.alphabet('import os').identify()
+> 'Python'
+
+alphabet.alphabet('<div>foobar</div>').identify()
+> 'XML'
+
+alphabet.alphabet('Привет').identify()
+> 'ru'
 ```
