@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name = 'alphabet',
-    version = '0.0.1',
+    version = '0.0.2',
     description = 'A string class enhancement',
     packages = [ 'alphabet' ],
     author = 'Roberto Reale',
