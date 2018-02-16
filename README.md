@@ -9,7 +9,7 @@
 Just do
 
 ```
-pip install alphabet
+pip3 install alphabet
 ```
 
 ## Example
