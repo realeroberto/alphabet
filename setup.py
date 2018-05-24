@@ -1,10 +1,18 @@
-from setuptools import setup
+from setuptools import find_packages, setup
+
+with open('README.rst') as f:
+    readme = f.read()
+
+with open('LICENSE.txt') as f:
+    license = f.read()
 
 setup(
     name = 'alphabet',
-    version = '0.0.3',
+    version = '0.0.4',
     description = 'A string class enhancement',
-    packages = [ 'alphabet' ],
+    long_description = readme,
+    license = license,
+    packages=find_packages(exclude=('tests', 'docs')),
     author = 'Roberto Reale',
     author_email = 'rober.reale@gmail.com',
     url = 'https://github.com/robertoreale/alphabet',
