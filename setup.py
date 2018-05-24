@@ -6,12 +6,14 @@ with open('README.rst') as f:
 with open('LICENSE.txt') as f:
     license = f.read()
 
+print readme
+
 setup(
     name = 'alphabet',
     version = '0.0.4',
     description = 'A string class enhancement',
     long_description = readme,
-    license = license,
+    #license = license,
     packages=find_packages(exclude=('tests', 'docs')),
     author = 'Roberto Reale',
     author_email = 'rober.reale@gmail.com',
