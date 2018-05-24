@@ -2,7 +2,8 @@
 alphabet
 ========
 
-[![PyPI](https://img.shields.io/pypi/v/alphabet.svg)](https://pypi.python.org/pypi/alphabet)
+.. image:: https://img.shields.io/pypi/v/alphabet.svg :alt: PyPI
+
 
 ``alphabet`` is a Python string class enhancement.
 
