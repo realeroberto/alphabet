@@ -38,15 +38,15 @@ print(t.obfuscate(key))
 ```
 from alphabet import alphabet
 
-alphabet.alphabet('%!').identify()
+alphabet('%!').identify()
 > 'PostScript document text'
 
-alphabet.alphabet('import os').identify()
+alphabet('import os').identify()
 > 'Python'
 
-alphabet.alphabet('<div>foobar</div>').identify()
+alphabet('<div>foobar</div>').identify()
 > 'XML'
 
-alphabet.alphabet('Привет').identify()
+alphabet('Привет').identify()
 > 'ru'
 ```
