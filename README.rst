@@ -13,7 +13,7 @@ Installation
 
 The easiest way to install the package is via ``pip``::
 
-    $ pip3 install alphabet
+    $ pip install alphabet
 
 Usage
 -----

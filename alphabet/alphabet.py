@@ -24,6 +24,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from builtins import chr
+from builtins import zip
+
 import re
 
 
@@ -82,7 +85,7 @@ class alphabet(str):
             return format
         else:
             language = self.detect_programming_language()
-            if not language:
+            if not language or language == "Text only":
                 language = self.detect_natural_language()
             return language
                 

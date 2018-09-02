@@ -8,14 +8,14 @@ with open('LICENSE.txt') as f:
 
 setup(
     name = 'alphabet',
-    version = '0.0.5',
+    version = '0.0.6',
     description = 'A string class enhancement',
     long_description = readme,
     #license = license,
     packages=find_packages(exclude=('tests', 'docs')),
     author = 'Roberto Reale',
     author_email = 'rober.reale@gmail.com',
-    url = 'https://github.com/robertoreale/alphabet',
+    url = 'https://github.com/reale/alphabet',
     keywords = [ ],
     install_requires = [ 'googletrans', 'filemagic', 'pygments', ],
     test_suite = 'nose.collector',
