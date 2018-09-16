@@ -14,7 +14,7 @@ setup(
     #license = license,
     packages=find_packages(exclude=('tests', 'docs')),
     author = 'Roberto Reale',
-    author_email = 'rober.reale@gmail.com',
+    author_email = 'roberto@reale.me',
     url = 'https://github.com/reale/alphabet',
     keywords = [ ],
     install_requires = [ 'googletrans', 'filemagic', 'pygments', ],
