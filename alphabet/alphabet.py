@@ -27,10 +27,44 @@
 from builtins import chr
 from builtins import zip
 
+import hashlib
 import re
 
 
 class alphabet(str):
+    def __init__(self, *args, **kwargs):
+        super(str, self).__init__() #*args, **kwargs)
+        self.__encoding = 'utf-8'
+
+    @property
+    def encoding(self):
+        return self.__encoding
+
+    @encoding.setter
+    def encoding(self, encoding):
+        self.__encoding = encoding
+
+    def get_algorithm(self, digest, algorithm="auto"):
+        if algorithm == "auto":
+            if digest is None or len(digest) == 0:
+                return "nodigest"
+            for candidate_algorithm in hashlib.algorithms_guaranteed:
+                hasher = getattr(hashlib, candidate_algorithm)
+                try:
+                    if hasher(self.__str__().encode(self.__encoding)).hexdigest() == digest:
+                        return candidate_algorithm
+                except TypeError:
+                    # https://docs.python.org/3/library/hashlib.html#shake-variable-length-digests
+                    pass
+        else:
+            if algorithm in hashlib.algorithms_guaranteed:
+                return algorithm
+        return None
+
+    def check(self, digest, algorithm="auto"):
+        # for our purposes, `nodigest' is an algorithm (ex falso quodlibet)
+        return (self.get_algorithm(digest, algorithm) is not None)
+
     def obfuscate(self, key):
         """
         A reversible obfuscation method.

@@ -8,7 +8,7 @@ with open('LICENSE.txt') as f:
 
 setup(
     name = 'alphabet',
-    version = '0.0.6',
+    version = '0.0.7',
     description = 'A string class enhancement',
     long_description = readme,
     #license = license,
