@@ -8,8 +8,8 @@ with open('LICENSE.txt') as f:
 
 setup(
     name = 'alphabet',
-    version = '0.0.7',
-    description = 'A string class enhancement',
+    version = '0.0.8',
+    description = 'Uses various methods to recognize text',
     long_description = readme,
     #license = license,
     packages=find_packages(exclude=('tests', 'docs')),
